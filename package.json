@@ -1,0 +1,17 @@
+{
+  "name": "proyectofinal_jccarreno_dyepez",
+  "version": "1.0.0",
+  "description": "Sistema de autoevaluacion docente",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "jccarreno_dyepez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "nodemon": "^2.0.22"
+  }
+}
