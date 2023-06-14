@@ -38,8 +38,8 @@ router.post('/agregarusuario',(req,res)=>{
 })
 
 //obtener
-router.get('/obtenerusuario', (req, res) => {
-  ModeloUsuario.find({})
+router.post('/obtenerusuario', (req, res) => {
+  ModeloUsuario.find({idusuario:req.body.usr_id})
     .then(docs => {
       res.send(docs);
     })
