@@ -11,7 +11,7 @@ const eschemaevaluacion=new eschema({
     eva_resultado:String,
     lab_id:String,
     per_id:String,
-    usr_id:String,
+    _id:String,
     rol_id:String
 })
 
@@ -30,7 +30,7 @@ router.post('/agregarevaluacion',(req,res)=>{
         eva_resultado:req.body.eva_resultado,
         lab_id:req.body.lab_id,
         per_id:req.body.per_id,
-        usr_id:req.body.usr_id,
+        _id:req.body._id,
         rol_id:req.body.rol_id
     })
     nuevoevaluacion.save()
@@ -62,7 +62,7 @@ router.post('/actualizarevaluacion', (req, res) => {
       eva_resultado:req.body.eva_resultado,
       lab_id:req.body.lab_id,
       per_id:req.body.per_id,
-      usr_id:req.body.usr_id,
+      _id:req.body._id,
       rol_id:req.body.rol_id})
     .then(() => {
       res.send('Evaluacion actualizado correctamente');

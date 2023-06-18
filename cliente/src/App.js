@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import ListaUsuarios from './Usuario/ListaUsuarios';
 import AgregarUsuarios from './Usuario/AgregarUsuario';
-import EditarUsuarios from './Usuario/EditarUsuario';
+import EditarUsuario from './Usuario/EditarUsuario';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 import './App.css';
@@ -24,9 +24,6 @@ function App() {
                 <li className="nav-item">
                     <a className="nav-link" href="agregarusuario">Agregar Usuarios</a>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="editarusuario">Editar Usuarios</a>
-                </li>
                 </ul>
             </div>
             </div>
@@ -37,7 +34,7 @@ function App() {
         <Routes>
           <Route path='/listarusuarios' element={<ListaUsuarios/>} exact></Route>
           <Route path='/agregarusuario' element={<AgregarUsuarios/>} exact></Route>
-          <Route path='/editarusuario/:usr_id' element={<EditarUsuarios/>} exact></Route>
+          <Route path='/editarusuario/:_id' element={<EditarUsuario/>} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>

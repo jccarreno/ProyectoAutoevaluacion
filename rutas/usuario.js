@@ -5,7 +5,7 @@ const mongoose=require('mongoose')
 const eschema=mongoose.Schema
 
 const eschemausuario=new eschema({
-    usr_id:{type:String,required:true,unique:true,key:true},
+    _id:{type:String,required:true,unique:true,key:true},
     usr_nombre:String,
     usr_apellido:String,
     usr_genero:String,
@@ -22,7 +22,7 @@ module.exports=router
 //Agregar
 router.post('/agregarusuario',(req,res)=>{
     const nuevousuario=new ModeloUsuario({
-        usr_id:req.body.usr_id,
+        _id:req.body._id,
         usr_nombre:req.body.usr_nombre,
         usr_apellido:req.body.usr_apellido,
         usr_genero:req.body.usr_genero,
@@ -39,19 +39,36 @@ router.post('/agregarusuario',(req,res)=>{
 
 //obtener
 router.post('/obtenerusuario', (req, res) => {
-  ModeloUsuario.find({idusuario:req.body.usr_id})
-    .then(docs => {
-      res.send(docs);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+  const _id = req.body._id;
+
+  if (_id) {
+    ModeloUsuario.findOne({ _id: _id })
+      .then(doc => {
+        if (doc) {
+          res.send([doc]); // Enviar el usuario como un array
+        } else {
+          res.send('No se encontró ningún usuario con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloUsuario.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
 });
+
 
 //actualizar
 router.post('/actualizarusuario', (req, res) => {
   ModeloUsuario.findOneAndUpdate(
-    { usr_id:req.body.usr_id },
+    { _id:req.body._id },
     { usr_nombre:req.body.usr_nombre,
       usr_apellido:req.body.usr_apellido,
       usr_genero:req.body.usr_genero,
@@ -67,7 +84,7 @@ router.post('/actualizarusuario', (req, res) => {
 //borrar
 router.post('/borrarusuario', (req, res) => {
   ModeloUsuario.findOneAndDelete(
-    { usr_id:req.body.usr_id })
+    { _id:req.body._id })
     .then(() => {
       res.send('Usuario borrado correctamente');
     })

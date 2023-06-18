@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function AgregarUsuarios(){
 
-    const[usr_id,SetId]=useState('')
+    const[_id,SetId]=useState('')
     const[usr_nombre,SetNombre]=useState('')
     const[usr_apellido,SetApellido]=useState('')
     const[usr_genero,SetGenero]=useState('')
@@ -12,7 +12,7 @@ function AgregarUsuarios(){
 
     function agregarUsuarios(){
         var usuario={
-            usr_id,
+            _id,
             usr_nombre,
             usr_apellido,
             usr_genero,
@@ -40,7 +40,7 @@ function AgregarUsuarios(){
       <form>
         <div className="mb-3">
           <label htmlFor="cedula" className="form-label">Cédula:</label>
-          <input type="text" className="form-control" id="cedula" name="cedula" required value={usr_id} onChange={(e)=>{SetId(e.target.value)}}/>
+          <input type="text" className="form-control" id="cedula" name="cedula" required value={_id} onChange={(e)=>{SetId(e.target.value)}}/>
         </div>
 
         <div className="mb-3">
