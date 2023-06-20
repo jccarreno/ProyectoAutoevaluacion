@@ -19,9 +19,9 @@ module.exports=router
 
 router.post('/agregartipolabor',(req,res)=>{
     const nuevoTipoLabor=new ModeloTipoLabor({
-        tl_id:req.body.tl_id,
-        tl_codigo:req.body.tl_codigo,
-        tl_descripcion:req.body.tl_descripcion,
+      tl_id:req.body.tl_id,  
+      tl_codigo:req.body.tl_codigo,
+      tl_descripcion:req.body.tl_descripcion,
     })
     nuevoTipoLabor.save()
     .then(() => {
@@ -33,21 +33,38 @@ router.post('/agregartipolabor',(req,res)=>{
 })
 
 //obtener
-router.get('/obtenertipolabor', (req, res) => {
-  ModeloTipoLabor.find({})
-    .then(docs => {
-      res.send(docs);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+router.post('/obtenertipolabor', (req, res) => {
+  const tl_id = req.body.tl_id;
+
+  if (tl_id) {
+    ModeloTipoLabor.findOne({ tl_id: tl_id })
+      .then(doc => {
+        if (doc) {
+          res.send([doc]); // Enviar el usuario como un array
+        } else {
+          res.send('No se encontró ningún tipo labor con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloTipoLabor.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
 });
+
 
 //actualizar
 router.post('/actualizartipolabor', (req, res) => {
   ModeloTipoLabor.findOneAndUpdate(
-    { tl_id:req.body.tl_id },
-    { tl_codigo:req.body.tl_codigo,
+    { tl_id:req.body.tl_id},
+    {tl_codigo:req.body.tl_codigo,
       tl_descripcion:req.body.tl_descripcion})
     .then(() => {
       res.send('Tipo labor actualizado correctamente');

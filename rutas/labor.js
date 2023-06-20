@@ -35,15 +35,32 @@ router.post('/agregarlabor',(req,res)=>{
 })
 
 //obtener
-router.get('/obtenerlabor', (req, res) => {
-  ModeloLabor.find({})
-    .then(docs => {
-      res.send(docs);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+router.post('/obtenerlabor', (req, res) => {
+  const lab_id = req.body.lab_id;
+
+  if (lab_id) {
+    ModeloLabor.findOne({ lab_id: lab_id })
+      .then(doc => {
+        if (doc) {
+          res.send([doc]); // Enviar el usuario como un array
+        } else {
+          res.send('No se encontró ningúna labor con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloLabor.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
 });
+
 
 //actualizar
 router.post('/actualizarlabor', (req, res) => {

@@ -35,14 +35,30 @@ router.post('/agregarperiodo',(req,res)=>{
 })
 
 //obtener
-router.get('/obtenerperiodo', (req, res) => {
-  ModeloPeriodo.find({})
-    .then(docs => {
-      res.send(docs);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+router.post('/obtenerperiodo', (req, res) => {
+  const per_id = req.body.per_id;
+
+  if (per_id) {
+    ModeloPeriodo.findOne({ per_id: per_id })
+      .then(doc => {
+        if (doc) {
+          res.send([doc]); // Enviar el usuario como un array
+        } else {
+          res.send('No se encontró ningún periodo con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloPeriodo.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
 });
 
 //actualizar

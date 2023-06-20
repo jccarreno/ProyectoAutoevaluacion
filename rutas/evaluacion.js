@@ -43,14 +43,30 @@ router.post('/agregarevaluacion',(req,res)=>{
 })
 
 //obtener
-router.get('/obtenerevaluacion', (req, res) => {
-  ModeloEvaluaciones.find({})
-    .then(docs => {
-      res.send(docs);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+router.post('/obtenerevaluacion', (req, res) => {
+  const eva_id = req.body.eva_id;
+
+  if (eva_id) {
+    ModeloEvaluaciones.findOne({ eva_id: eva_id })
+      .then(doc => {
+        if (doc) {
+          res.send([doc]); // Enviar el usuario como un array
+        } else {
+          res.send('No se encontró ningúna evaluacion con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloEvaluaciones.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
 });
 
 //actualizar

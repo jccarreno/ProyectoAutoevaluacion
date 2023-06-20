@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import uniquid from 'uniqid'
 import axios from 'axios'
 
 function AgregarUsuarios(){
