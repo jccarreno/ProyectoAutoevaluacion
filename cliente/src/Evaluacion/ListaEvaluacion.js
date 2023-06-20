@@ -1,35 +1,47 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
-import EvaluacionIndividual from './EvaluacionIndividual'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import EvaluacionIndividual from './EvaluacionIndividual';
 
-function ListaEvaluacion(){
+function ListaEvaluacion() {
+  const [dataevaluacion, setdataevaluacion] = useState([]);
+  const [filtroPerId, setFiltroPerId] = useState('');
 
-    const[dataevaluacion,setdataevaluacion]=useState([])
-    axios.defaults.baseURL='http://localhost:5000'
-    useEffect(()=>{
-        axios.post('/api/obtenerevaluacion').then(res=>{
-            console.log(res.data)
-            setdataevaluacion(res.data)
-        }).catch(err=>{
-            console.log(err)
-        })
-    },[])
+  axios.defaults.baseURL = 'http://localhost:5000';
 
-    //Mapear lista en objeto usuario
-    const listaEvaluaciones=dataevaluacion.map(evaluacion=>{
-        return(
-            <div key={evaluacion.eva_id}>
-                <EvaluacionIndividual evaluacion={evaluacion}/>
-            </div>
-        )
-    })
+  useEffect(() => {
+    axios
+      .post('/api/obtenerevaluacion')
+      .then((res) => {
+        console.log(res.data);
+        setdataevaluacion(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-    return(
-        <div>
-            <h2>Listar evaluaciones</h2>
-            {listaEvaluaciones}
+  const listaEvaluaciones = dataevaluacion
+    .filter((evaluacion) => evaluacion.per_id.includes(filtroPerId))
+    .map((evaluacion) => {
+      return (
+        <div key={evaluacion.eva_id}>
+          <EvaluacionIndividual evaluacion={evaluacion} />
         </div>
-    )
+      );
+    });
+
+  return (
+    <div>
+      <h2>Listar evaluaciones</h2>
+      <input
+        type="text"
+        placeholder="Buscar por periodo"
+        value={filtroPerId}
+        onChange={(e) => setFiltroPerId(e.target.value)}
+      />
+      {listaEvaluaciones}
+    </div>
+  );
 }
 
-export default ListaEvaluacion
+export default ListaEvaluacion;
