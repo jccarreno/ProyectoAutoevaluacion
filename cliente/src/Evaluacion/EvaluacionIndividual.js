@@ -27,7 +27,7 @@ function EvaluacionIndividual({evaluacion}){
                         <li className='list-group-item'>{evaluacion.eva_resultado}</li>
                         <li className='list-group-item'>{evaluacion.lab_id}</li>
                         <li className='list-group-item'>{evaluacion.per_id}</li>
-                        <li className='list-group-item'>{evaluacion._id}</li>
+                        <li className='list-group-item'>{evaluacion.usr_id}</li>
                         <li className='list-group-item'>{evaluacion.rol_id}</li>
                     </ul>
 

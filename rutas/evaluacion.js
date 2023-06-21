@@ -11,7 +11,7 @@ const eschemaevaluacion=new eschema({
     eva_resultado:String,
     lab_id:String,
     per_id:String,
-    _id:String,
+    usr_id:String,
     rol_id:String
 })
 
@@ -30,15 +30,17 @@ router.post('/agregarevaluacion',(req,res)=>{
         eva_resultado:req.body.eva_resultado,
         lab_id:req.body.lab_id,
         per_id:req.body.per_id,
-        _id:req.body._id,
+        usr_id:req.body.usr_id,
         rol_id:req.body.rol_id
     })
     nuevoevaluacion.save()
     .then(() => {
       console.log('Guardado exitosamente');
+      res.status(200).send('Guardado exitosamente');
     })
     .catch((error) => {
       console.error(error);
+      res.status(500).send(`Error al guardar la evaluación: ${error.message}`);
     });
 })
 
@@ -69,6 +71,32 @@ router.post('/obtenerevaluacion', (req, res) => {
   }
 });
 
+router.post('/obtenerevaluaciondocente', (req, res) => {
+  const usr_id = req.body.usr_id;
+
+  if (usr_id) {
+    ModeloEvaluaciones.find({ usr_id: usr_id })  // <-- Cambiado a 'find'
+      .then(docs => {
+        if (docs && docs.length > 0) {  // <-- Comprobación actualizada
+          res.send(docs); // Enviar todas las evaluaciones correspondientes
+        } else {
+          res.send('No se encontró ninguna evaluación con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloEvaluaciones.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
+});
+
 //actualizar
 router.post('/actualizarevaluacion', (req, res) => {
   ModeloEvaluaciones.findOneAndUpdate(
@@ -78,7 +106,7 @@ router.post('/actualizarevaluacion', (req, res) => {
       eva_resultado:req.body.eva_resultado,
       lab_id:req.body.lab_id,
       per_id:req.body.per_id,
-      _id:req.body._id,
+      usr_id:req.body.usr_id,
       rol_id:req.body.rol_id})
     .then(() => {
       res.send('Evaluacion actualizado correctamente');
@@ -94,6 +122,42 @@ router.post('/borrarevaluacion', (req, res) => {
     { eva_id:req.body.eva_id})
     .then(() => {
       res.send('Evaluacion borrado correctamente');
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
+router.post('/updateEstado', (req, res) => {
+  ModeloEvaluaciones.findOneAndUpdate(
+    { eva_id:req.body.eva_id },
+    { eva_estado:req.body.eva_estado})
+    .then(() => {
+      res.send('Evaluacion actualizado correctamente');
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
+router.post('/updateResultado', (req, res) => {
+  ModeloEvaluaciones.findOneAndUpdate(
+    { eva_id:req.body.eva_id },
+    { eva_resultado:req.body.eva_resultado})
+    .then(() => {
+      res.send('Evaluacion actualizado correctamente');
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
+router.post('/updatePuntaje', (req, res) => {
+  ModeloEvaluaciones.findOneAndUpdate(
+    { eva_id:req.body.eva_id },
+    { eva_puntaje:req.body.eva_puntaje})
+    .then(() => {
+      res.send('Evaluacion actualizado correctamente');
     })
     .catch(err => {
       res.send(err);

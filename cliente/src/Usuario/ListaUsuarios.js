@@ -18,7 +18,7 @@ function ListaUsuarios(){
     //Mapear lista en objeto usuario
     const listaUsuarios=datausuarios.map(usuario=>{
         return(
-            <div key={usuario._id}>
+            <div key={usuario.usr_id}>
                 <UsuarioIndividual usuario={usuario}/>
             </div>
         )

@@ -11,7 +11,7 @@ function EditarEvaluacion() {
   const[eva_resultado,SetResultado]=useState('')
   const[lab_id,SetLabId]=useState('')
   const[per_id,SetPerId]=useState('')
-  const[_id,SetUsrId]=useState('')
+  const[usr_id,SetUsrId]=useState('')
   const[rol_id,SetRolId]=useState('')
 
   axios.defaults.baseURL = 'http://localhost:5000';
@@ -27,7 +27,7 @@ function EditarEvaluacion() {
           SetResultado(dataevaluacion.eva_resultado);
           SetLabId(dataevaluacion.lab_id);
           SetPerId(dataevaluacion.per_id);
-          SetUsrId(dataevaluacion._id);
+          SetUsrId(dataevaluacion.usr_id);
           SetRolId(dataevaluacion.rol_id);
         })
         .catch((error) => {
@@ -45,7 +45,7 @@ function EditarEvaluacion() {
       eva_resultado,
       lab_id,
       per_id,
-      _id,
+      usr_id,
       rol_id
     }
 
@@ -94,7 +94,7 @@ function EditarEvaluacion() {
 
         <div class="mb-3">
           <label for="id_profesor" class="form-label">ID del profesor:</label>
-          <input type="text" class="form-control" id="id_profesor" name="id_profesor" required value={_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
+          <input type="text" class="form-control" id="id_profesor" name="id_profesor" required value={usr_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
         </div>
 
         <div class="mb-3">
@@ -111,3 +111,4 @@ function EditarEvaluacion() {
 }
 
 export default EditarEvaluacion;
+

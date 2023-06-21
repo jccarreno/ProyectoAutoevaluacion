@@ -5,7 +5,7 @@ const mongoose=require('mongoose')
 const eschema=mongoose.Schema
 
 const eschemausuario=new eschema({
-    _id:{type:String,required:true,unique:true,key:true},
+    usr_id:{type:String,required:true,unique:true,key:true},
     usr_nombre:String,
     usr_apellido:String,
     usr_genero:String,
@@ -22,7 +22,7 @@ module.exports=router
 //Agregar
 router.post('/agregarusuario',(req,res)=>{
     const nuevousuario=new ModeloUsuario({
-        _id:req.body._id,
+        usr_id:req.body.usr_id,
         usr_nombre:req.body.usr_nombre,
         usr_apellido:req.body.usr_apellido,
         usr_genero:req.body.usr_genero,
@@ -39,10 +39,10 @@ router.post('/agregarusuario',(req,res)=>{
 
 //obtener
 router.post('/obtenerusuario', (req, res) => {
-  const _id = req.body._id;
+  const usr_id = req.body.usr_id;
 
-  if (_id) {
-    ModeloUsuario.findOne({ _id: _id })
+  if (usr_id) {
+    ModeloUsuario.findOne({ usr_id: usr_id })
       .then(doc => {
         if (doc) {
           res.send([doc]); // Enviar el usuario como un array
@@ -68,7 +68,7 @@ router.post('/obtenerusuario', (req, res) => {
 //actualizar
 router.post('/actualizarusuario', (req, res) => {
   ModeloUsuario.findOneAndUpdate(
-    { _id:req.body._id },
+    { usr_id:req.body.usr_id },
     { usr_nombre:req.body.usr_nombre,
       usr_apellido:req.body.usr_apellido,
       usr_genero:req.body.usr_genero,
@@ -84,7 +84,7 @@ router.post('/actualizarusuario', (req, res) => {
 //borrar
 router.post('/borrarusuario', (req, res) => {
   ModeloUsuario.findOneAndDelete(
-    { _id:req.body._id })
+    { usr_id:req.body.usr_id })
     .then(() => {
       res.send('Usuario borrado correctamente');
     })

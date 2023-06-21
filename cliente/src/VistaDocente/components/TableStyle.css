@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+  margin: 20px;
+}
+.first-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.recta {
+  background-color: #ccc;
+  text-align: center;
+}
+
+.parte {
+  background-color: #f0f0f0;
+}
+.parte-center {
+  background-color: #f0f0f0;
+}
+.parte-center p {
+  text-align: center;
+}
+.second-table {
+  width: 100%;
+  background: #f0f0f0;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.second-table th {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.column-xxl {
+  width: 20%;
+}
+.title-second-table {
+  background: lightgray;
+}
+
+.column-nombrelabor {
+  text-align: left;
+}
+
+.column-evaluacion {
+  background: yellow;
+  font-weight: 700;
+}
+
+.select-column-estado {
+  background: #f0f0f0;
+  border: red;
+  padding: 10px;
+  color: #000;
+}
+
+.total {
+  text-align: right;
+}

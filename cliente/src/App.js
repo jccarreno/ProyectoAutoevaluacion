@@ -16,52 +16,59 @@ import EditarPeriodo from './Periodo/EditarPeriodo';
 import AgregarEvaluacion from './Evaluacion/AgregarEvaluacion';
 import EditarEvaluacion from './Evaluacion/EditarEvaluacion';
 import ListaEvaluacion from './Evaluacion/ListaEvaluacion';
+import VistaDocente from './VistaDocente/VistaDocente';
 
 function App() {
   return (
     <div className='App'>
       <div className="titulo">AUTOEVALUACION DOCENTE</div>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="/">Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container">
+                <a className="navbar-brand" href="/">Inicio</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
-                            <ul class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                                <li><a class="dropdown-item" href="listarusuarios">Listar</a></li>
-                                <li><a class="dropdown-item" href="agregarusuario">Agregar</a></li>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
+                            <ul className="dropdown-menu" aria-labelledby="usuariosDropdown">
+                                <li><a className="dropdown-item" href="listarusuarios">Listar</a></li>
+                                <li><a className="dropdown-item" href="agregarusuario">Agregar</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="laborDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Labor</a>
-                            <ul class="dropdown-menu" aria-labelledby="laborDropdown">
-                                <li><a class="dropdown-item" href="listarlabor">Listar</a></li>
-                                <li><a class="dropdown-item" href="agregarlabor">Agregar</a></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="laborDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Labor</a>
+                            <ul className="dropdown-menu" aria-labelledby="laborDropdown">
+                                <li><a className="dropdown-item" href="listarlabor">Listar</a></li>
+                                <li><a className="dropdown-item" href="agregarlabor">Agregar</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="tipolaborDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo Labor</a>
-                            <ul class="dropdown-menu" aria-labelledby="tipolaborDropdown">
-                                <li><a class="dropdown-item" href="listartipolabor">Listar</a></li>
-                                <li><a class="dropdown-item" href="agregartipolabor">Agregar</a></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="tipolaborDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo Labor</a>
+                            <ul className="dropdown-menu" aria-labelledby="tipolaborDropdown">
+                                <li><a className="dropdown-item" href="listartipolabor">Listar</a></li>
+                                <li><a className="dropdown-item" href="agregartipolabor">Agregar</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="periodoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Periodo</a>
-                            <ul class="dropdown-menu" aria-labelledby="periodoDropdown">
-                                <li><a class="dropdown-item" href="listarperiodo">Listar</a></li>
-                                <li><a class="dropdown-item" href="agregarperiodo">Agregar</a></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="periodoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Periodo</a>
+                            <ul className="dropdown-menu" aria-labelledby="periodoDropdown">
+                                <li><a className="dropdown-item" href="listarperiodo">Listar</a></li>
+                                <li><a className="dropdown-item" href="agregarperiodo">Agregar</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="evaluacionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Evaluacion</a>
-                            <ul class="dropdown-menu" aria-labelledby="evaluacionDropdown">
-                                <li><a class="dropdown-item" href="listarevaluacion">Listar</a></li>
-                                <li><a class="dropdown-item" href="agregarevaluacion">Agregar</a></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="evaluacionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Evaluacion</a>
+                            <ul className="dropdown-menu" aria-labelledby="evaluacionDropdown">
+                                <li><a className="dropdown-item" href="listarevaluacion">Listar</a></li>
+                                <li><a className="dropdown-item" href="agregarevaluacion">Agregar</a></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="VistaDocenteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">VistaDocente</a>
+                            <ul className="dropdown-menu" aria-labelledby="VistaDocenteDropdown">
+                                <li><a className="dropdown-item" href="docente">ver</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -88,6 +95,7 @@ function App() {
           <Route path='/agregarevaluacion' element={<AgregarEvaluacion/>} exact></Route>
           <Route path='/listarevaluacion' element={<ListaEvaluacion/>} exact></Route>
           <Route path='/editarevaluacion/:eva_id' element={<EditarEvaluacion/>} exact></Route>
+          <Route path='/docente/:usr_id' element={<VistaDocente/>} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>

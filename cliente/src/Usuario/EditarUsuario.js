@@ -13,9 +13,9 @@ function EditarUsuario() {
 
   axios.defaults.baseURL = 'http://localhost:5000';
   useEffect(() => {
-    if (params._id) {
+    if (params.usr_id) {
       axios
-        .post('/api/obtenerusuario', { _id: params._id })
+        .post('/api/obtenerusuario', { usr_id: params.usr_id })
         .then((res) => {
           const datausuario = res.data[0];
           console.log(datausuario);
@@ -28,12 +28,12 @@ function EditarUsuario() {
           console.error(error);
         });
     }
-  }, [params._id]);
+  }, [params.usr_id]);
 
 
   function editarUsuario(event) {
     const actualizarusuario={
-      _id: params._id,
+      usr_id: params.usr_id,
       usr_nombre,
       usr_apellido,
       usr_genero,

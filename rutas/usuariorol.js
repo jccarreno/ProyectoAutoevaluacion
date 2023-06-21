@@ -5,7 +5,7 @@ const mongoose=require('mongoose')
 const eschema=mongoose.Schema
 
 const eschemaUsuarioRol=new eschema({
-    _id:{type:String,required:true,unique:true,key:true},
+    usr_id:{type:String,required:true,unique:true,key:true},
     rol_id:String,
     ur_fechainicio:Date,
     ur_fechafin:Date
@@ -20,7 +20,7 @@ module.exports=router
 
 router.post('/agregarusuariorol',(req,res)=>{
     const nuevousuariorol=new ModeloUsuarioRol({
-        _id:req.body._id,
+        usr_id:req.body.usr_id,
         rol_id:req.body.rol_id,
         ur_fechainicio:req.body.ur_fechainicio,
         ur_fechafin:req.body.ur_fechafin
@@ -48,7 +48,7 @@ router.get('/obtenerusuariorol', (req, res) => {
 //actualizar
 router.post('/actualizarusuariorol', (req, res) => {
   ModeloUsuarioRol.findOneAndUpdate(
-    { _id:req.body._id },
+    { usr_id:req.body.usr_id },
     { rol_id:req.body.rol_id,
       ur_fechainicio:req.body.ur_fechainicio,
       ur_fechafin:req.body.ur_fechafin})
@@ -63,7 +63,7 @@ router.post('/actualizarusuariorol', (req, res) => {
 //borrar
 router.post('/borrarusuariorol', (req, res) => {
   ModeloUsuarioRol.findOneAndDelete(
-    { _id:req.body._id })
+    { usr_id:req.body.usr_id })
     .then(() => {
       res.send('Usuario rol borrado correctamente');
     })
