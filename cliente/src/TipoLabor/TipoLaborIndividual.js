@@ -22,9 +22,9 @@ function TipoLaborIndividual({tipolabor}){
             <div className="row">
                 <div className='col-sm-6 offset-3'>
                     <ul className='list-group'>
-                        <li className='list-group-item'>{tipolabor.tl_id}</li>
-                        <li className='list-group-item'>{tipolabor.tl_codigo}</li>
-                        <li className='list-group-item'>{tipolabor.tl_descripcion}</li>
+                        <li className='list-group-item'>ID: {tipolabor.tl_id}</li>
+                        <li className='list-group-item'>Codigo: {tipolabor.tl_codigo}</li>
+                        <li className='list-group-item'>Descripcion: {tipolabor.tl_descripcion}</li>
                     </ul>
 
                     <Link to={`/editartipolabor/${tipolabor.tl_id}`}><li className="btn btn-succes">Editar</li></Link>

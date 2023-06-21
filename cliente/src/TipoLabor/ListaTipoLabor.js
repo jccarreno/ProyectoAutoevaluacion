@@ -26,7 +26,7 @@ function ListaTipoLabor(){
 
     return(
         <div>
-            <h2>Listar tipo labores</h2>
+            <h2>LISTAR TIPOS DE LABORES</h2>
             {listatipoLabores}
         </div>
     )

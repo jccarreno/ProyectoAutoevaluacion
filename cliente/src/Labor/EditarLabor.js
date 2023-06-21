@@ -48,7 +48,7 @@ function EditarLabor() {
 
   return (
     <div className="container">
-      <h1 className="text-center">Formulario de Registro</h1>
+      <h1 className="text-center">EDITAR LABOR</h1>
 
       <form>
         <div className="mb-3">

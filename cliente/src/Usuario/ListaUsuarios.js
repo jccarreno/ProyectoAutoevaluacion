@@ -26,7 +26,7 @@ function ListaUsuarios(){
 
     return(
         <div>
-            <h2>Listar usuarios</h2>
+            <h2>LISTA DE USUARIOS</h2>
             {listaUsuarios}
         </div>
     )

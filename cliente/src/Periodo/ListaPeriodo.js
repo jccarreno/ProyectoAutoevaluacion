@@ -26,7 +26,7 @@ function ListaPeriodo(){
 
     return(
         <div>
-            <h2>Listar periodos</h2>
+            <h2>LISTA DE PERIODOS</h2>
             {listaPeriodos}
         </div>
     )

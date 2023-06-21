@@ -49,7 +49,7 @@ function EditarPeriodo() {
 
   return (
     <div className="container">
-    <h1 className="text-center">Formulario de Actualizacion</h1>
+    <h1 className="text-center">EDITAR PERIODO</h1>
 
     <form>
       <div className="mb-3">

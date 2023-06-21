@@ -32,7 +32,7 @@ function AgregarPeriodo(){
 
     return(
       <div className="container">
-        <h1 className="text-center">Formulario de Registro</h1>
+        <h1 className="text-center">REGISTRO DE PERIODO</h1>
 
         <form>
           <div className="mb-3">

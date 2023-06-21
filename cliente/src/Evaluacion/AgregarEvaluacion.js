@@ -3,46 +3,80 @@ import axios from 'axios'
 
 function AgregarEvaluacion(){
 
+  const[eva_id,SetId]=useState('')
+  const[eva_estado,SetEstado]=useState('')
+  const[eva_puntaje,SetPuntaje]=useState('')
+  const[eva_resultado,SetResultado]=useState('')
+  const[lab_id,SetLabId]=useState('')
+  const[per_id,SetPerId]=useState('')
+  const[usr_id,SetUsrId]=useState('')
+  const[rol_id,SetRolId]=useState('')
 
-    const[eva_id,SetId]=useState('')
-    const[eva_estado,SetEstado]=useState('')
-    const[eva_puntaje,SetPuntaje]=useState('')
-    const[eva_resultado,SetResultado]=useState('')
-    const[lab_id,SetLabId]=useState('')
-    const[per_id,SetPerId]=useState('')
-    const[usr_id,SetUsrId]=useState('')
-    const[rol_id,SetRolId]=useState('')
+  async function agregarEvaluacion() {
+    axios.defaults.baseURL = 'http://localhost:5000';
 
-    function agregarEvaluacion() {
-      var evaluacion = {
-        eva_id,
-        eva_estado,
-        eva_puntaje: parseInt(eva_puntaje),
-        eva_resultado,
-        lab_id,
-        per_id,
-        usr_id,
-        rol_id,
-      };
-  
-      console.log(evaluacion);
-  
-      axios.defaults.baseURL = 'http://localhost:5000';
-      axios
-        .post('/api/agregarevaluacion', evaluacion)
-        .then((res) => {
-          console.log(res.data);
-          alert('Evaluacion agregada exitosamente');
-        })
-        .catch((err) => {
-          console.log(err);
-          alert('Error al agregar la Evaluacion');
-        });
+    // Verificar que la labor existe
+    const labor = await axios.post('/api/obtenerlabor', { lab_id })
+    console.log(labor.data)
+    if(!Array.isArray(labor.data) && !labor.data.lenght) {
+      alert('No se encontró ninguna labor con la ID proporcionada');
+      return;
     }
+
+    // Verificar que el periodo existe
+    const periodo = await axios.post('/api/obtenerperiodo', { per_id })
+    console.log(periodo.data)
+    if(!Array.isArray(periodo.data) && !periodo.data.lenght) {
+      alert('No se encontró ningún periodo con la ID proporcionada');
+      return;
+    }
+
+    // Verificar que el usuario existe
+    const usuario = await axios.post('/api/obtenerusuario', { usr_id })
+    console.log(usuario.data)
+    if(!Array.isArray(usuario.data) && !usuario.data.lenght) {
+      alert('No se encontró ningún usuario con la ID proporcionada');
+      return;
+    }
+
+    // Verificar que no existe una evaluación con la misma lab_id
+    const evaluacionExistente = await axios.post('/api/obtenerevaluacionlabor', { lab_id })
+    console.log(evaluacionExistente.data)
+    if(Array.isArray(evaluacionExistente.data)) {
+      alert('Ya existe una evaluación con la ID de labor proporcionada');
+      return;
+    }
+
+
+    // Si todo esta bien, agregar la evaluación
+    var evaluacion = {
+      eva_id,
+      eva_estado,
+      eva_puntaje: parseInt(eva_puntaje),
+      eva_resultado,
+      lab_id,
+      per_id,
+      usr_id,
+      rol_id,
+    };
+
+    console.log(evaluacion);
+
+    axios
+      .post('/api/agregarevaluacion', evaluacion)
+      .then((res) => {
+        console.log(res.data);
+        alert('Evaluacion agregada exitosamente');
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Error al agregar la Evaluacion');
+      });
+  }
 
     return(
       <div className="container">
-        <h1 className="text-center">Formulario de Registro</h1>
+        <h1 className="text-center">REGISTRAR EVALUACION</h1>
         <form>
           <div className="mb-3">
             <label htmlFor="id" className="form-label">ID:</label>

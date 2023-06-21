@@ -17,11 +17,12 @@ import AgregarEvaluacion from './Evaluacion/AgregarEvaluacion';
 import EditarEvaluacion from './Evaluacion/EditarEvaluacion';
 import ListaEvaluacion from './Evaluacion/ListaEvaluacion';
 import VistaDocente from './VistaDocente/VistaDocente';
+import BuscarDocente from './VistaDocente/BuscarDocente';
 
 function App() {
   return (
     <div className='App'>
-      <div className="titulo">AUTOEVALUACION DOCENTE</div>
+      <div className="titulo">GESTION AUTOEVALUACION DOCENTE</div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <a className="navbar-brand" href="/">Inicio</a>
@@ -82,7 +83,7 @@ function App() {
         <Routes>
           <Route path='/listarusuarios' element={<ListaUsuarios/>} exact></Route>
           <Route path='/agregarusuario' element={<AgregarUsuarios/>} exact></Route>
-          <Route path='/editarusuario/:_id' element={<EditarUsuario/>} exact></Route>
+          <Route path='/editarusuario/:usr_id' element={<EditarUsuario/>} exact></Route>
           <Route path='/agregarlabor' element={<AgregarLabor/>} exact></Route>
           <Route path='/listarlabor' element={<ListaLabor/>} exact></Route>
           <Route path='/editarlabor/:lab_id' element={<EditarLabor/>} exact></Route>
@@ -95,6 +96,7 @@ function App() {
           <Route path='/agregarevaluacion' element={<AgregarEvaluacion/>} exact></Route>
           <Route path='/listarevaluacion' element={<ListaEvaluacion/>} exact></Route>
           <Route path='/editarevaluacion/:eva_id' element={<EditarEvaluacion/>} exact></Route>
+          <Route path='/docente' element={<BuscarDocente/>} exact></Route>
           <Route path='/docente/:usr_id' element={<VistaDocente/>} exact></Route>
         </Routes>
       </BrowserRouter>

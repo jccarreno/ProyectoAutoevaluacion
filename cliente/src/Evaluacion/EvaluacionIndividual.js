@@ -21,14 +21,14 @@ function EvaluacionIndividual({evaluacion}){
             <div className="row">
                 <div className='col-sm-6 offset-3'>
                     <ul className='list-group'>
-                        <li className='list-group-item'>{evaluacion.eva_id}</li>
-                        <li className='list-group-item'>{evaluacion.eva_estado}</li>
-                        <li className='list-group-item'>{evaluacion.eva_puntaje}</li>
-                        <li className='list-group-item'>{evaluacion.eva_resultado}</li>
-                        <li className='list-group-item'>{evaluacion.lab_id}</li>
-                        <li className='list-group-item'>{evaluacion.per_id}</li>
-                        <li className='list-group-item'>{evaluacion.usr_id}</li>
-                        <li className='list-group-item'>{evaluacion.rol_id}</li>
+                        <li className='list-group-item'>ID: {evaluacion.eva_id}</li>
+                        <li className='list-group-item'>Estado: {evaluacion.eva_estado}</li>
+                        <li className='list-group-item'>Puntaje: {evaluacion.eva_puntaje}</li>
+                        <li className='list-group-item'>Resultado: {evaluacion.eva_resultado}</li>
+                        <li className='list-group-item'>ID Labor: {evaluacion.lab_id}</li>
+                        <li className='list-group-item'>ID Periodo: {evaluacion.per_id}</li>
+                        <li className='list-group-item'>ID usuario: {evaluacion.usr_id}</li>
+                        <li className='list-group-item'>ID rol: {evaluacion.rol_id}</li>
                     </ul>
 
                     <Link to={`/editarevaluacion/${evaluacion.eva_id}`}><li className="btn btn-succes">Editar</li></Link>

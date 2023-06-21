@@ -22,10 +22,10 @@ function LaborIndividual({labor}){
             <div className="row">
                 <div className='col-sm-6 offset-3'>
                     <ul className='list-group'>
-                        <li className='list-group-item'>{labor.lab_id}</li>
-                        <li className='list-group-item'>{labor.lab_nombre}</li>
-                        <li className='list-group-item'>{labor.lab_horas}</li>
-                        <li className='list-group-item'>{labor.tl_id}</li>
+                        <li className='list-group-item'>ID: {labor.lab_id}</li>
+                        <li className='list-group-item'>Nombre: {labor.lab_nombre}</li>
+                        <li className='list-group-item'>Horas: {labor.lab_horas}</li>
+                        <li className='list-group-item'>ID Tipo Labor: {labor.tl_id}</li>
                     </ul>
 
                     <Link to={`/editarlabor/${labor.lab_id}`}><li className="btn btn-succes">Editar</li></Link>

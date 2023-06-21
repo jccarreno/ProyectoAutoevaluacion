@@ -59,51 +59,51 @@ function EditarEvaluacion() {
 
 
   return (
-    <div class="container">
-      <h1 class="text-center">Formulario de Actualizacion</h1>
+    <div className="container">
+      <h1 className="text-center">EDITAR EVALUACION</h1>
       <form>
 
-        <div class="mb-3">
-          <label for="estado" class="form-label">Estado:</label>
-          <select class="form-select" id="estado" name="estado" required value={eva_estado} onChange={(e)=>{SetEstado(e.target.value)}}>
+        <div className="mb-3">
+          <label htmlFor="estado" className="form-label">Estado:</label>
+          <select className="form-select" id="estado" name="estado" required value={eva_estado} onChange={(e)=>{SetEstado(e.target.value)}}>
             <option value="En ejecucion">En ejecución</option>
             <option value="Terminado">Terminado</option>
             <option value="Suspendido">Suspendido</option>
           </select>
         </div>
 
-        <div class="mb-3">
-          <label for="puntaje" class="form-label">Puntaje:</label>
+        <div className="mb-3">
+          <label htmlFor="puntaje" className="form-label">Puntaje:</label>
           <input type="number" id="puntaje" name="puntaje" min="0" max="100" required value={eva_puntaje} onChange={(e)=>{SetPuntaje(e.target.value)}} />
         </div>
 
-        <div class="mb-3">
-          <label for="resultado" class="form-label">Resultado:</label>
-          <input type="text" class="form-control" id="lab_id" name="cedula" required value={eva_resultado} onChange={(e)=>{SetResultado(e.target.value)}} />
+        <div className="mb-3">
+          <label htmlFor="resultado" className="form-label">Resultado:</label>
+          <input type="text" className="form-control" id="lab_id" name="cedula" required value={eva_resultado} onChange={(e)=>{SetResultado(e.target.value)}} />
         </div>
 
-        <div class="mb-3">
-          <label for="id_labor" class="form-label">ID de la labor:</label>
-          <input type="text" class="form-control" id="id_labor" name="id_labor" required value={lab_id} onChange={(e)=>{SetLabId(e.target.value)}} />
+        <div className="mb-3">
+          <label htmlFor="id_labor" className="form-label">ID de la labor:</label>
+          <input type="text" className="form-control" id="id_labor" name="id_labor" required value={lab_id} onChange={(e)=>{SetLabId(e.target.value)}} />
         </div>
 
-        <div class="mb-3">
-          <label for="id_periodo" class="form-label">ID del periodo:</label>
-          <input type="text" class="form-control" id="id_periodo" name="id_periodo" required value={per_id} onChange={(e)=>{SetPerId(e.target.value)}} />
+        <div className="mb-3">
+          <label htmlFor="id_periodo" className="form-label">ID del periodo:</label>
+          <input type="text" className="form-control" id="id_periodo" name="id_periodo" required value={per_id} onChange={(e)=>{SetPerId(e.target.value)}} />
         </div>
 
-        <div class="mb-3">
-          <label for="id_profesor" class="form-label">ID del profesor:</label>
-          <input type="text" class="form-control" id="id_profesor" name="id_profesor" required value={usr_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
+        <div className="mb-3">
+          <label htmlFor="id_profesor" className="form-label">ID del profesor:</label>
+          <input type="text" className="form-control" id="id_profesor" name="id_profesor" required value={usr_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
         </div>
 
-        <div class="mb-3">
-          <label for="id_rol" class="form-label">ID del rol:</label>
-          <input type="text" class="form-control" id="id_rol" name="id_rol" required value={rol_id} onChange={(e)=>{SetRolId(e.target.value)}} />
+        <div className="mb-3">
+          <label htmlFor="id_rol" className="form-label">ID del rol:</label>
+          <input type="text" className="form-control" id="id_rol" name="id_rol" required value={rol_id} onChange={(e)=>{SetRolId(e.target.value)}} />
         </div>
 
-        <div class="text-center">
-          <button onClick={editarEvaluacion} type="submit" class="btn btn-primary">Actualizar</button>
+        <div className="text-center">
+          <button onClick={editarEvaluacion} type="submit" className="btn btn-primary">Actualizar</button>
         </div>
       </form>
     </div>

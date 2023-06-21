@@ -21,10 +21,10 @@ function PeriodoIndividual({periodo}){
             <div className="row">
                 <div className='col-sm-6 offset-3'>
                     <ul className='list-group'>
-                        <li className='list-group-item'>{periodo.per_id}</li>
-                        <li className='list-group-item'>{periodo.per_nombre}</li>
-                        <li className='list-group-item'>{periodo.per_fechainicio}</li>
-                        <li className='list-group-item'>{periodo.per_fechafin}</li>
+                        <li className='list-group-item'>ID: {periodo.per_id}</li>
+                        <li className='list-group-item'>Nombre: {periodo.per_nombre}</li>
+                        <li className='list-group-item'>Inicio: {periodo.per_fechainicio}</li>
+                        <li className='list-group-item'>Fin: {periodo.per_fechafin}</li>
                     </ul>
 
                     <Link to={`/editarperiodo/${periodo.per_id}`}><li className="btn btn-succes">Editar</li></Link>

@@ -97,6 +97,32 @@ router.post('/obtenerevaluaciondocente', (req, res) => {
   }
 });
 
+router.post('/obtenerevaluacionlabor', (req, res) => {
+  const lab_id = req.body.lab_id;
+
+  if (lab_id) {
+    ModeloEvaluaciones.find({ lab_id: lab_id })  // <-- Cambiado a 'find'
+      .then(docs => {
+        if (docs && docs.length > 0) {  // <-- Comprobación actualizada
+          res.send(docs); // Enviar todas las evaluaciones correspondientes
+        } else {
+          res.send('No se encontró ninguna evaluación con la ID proporcionada.');
+        }
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  } else {
+    ModeloEvaluaciones.find()
+      .then(docs => {
+        res.send(docs);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  }
+});
+
 //actualizar
 router.post('/actualizarevaluacion', (req, res) => {
   ModeloEvaluaciones.findOneAndUpdate(

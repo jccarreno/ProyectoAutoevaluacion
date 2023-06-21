@@ -30,7 +30,7 @@ function AgregarTipoLabor(){
 
     return(
     <div className="container">
-      <h1 className="text-center">Formulario de Registro</h1>
+      <h1 className="text-center">AGREGAR TIPO LABOR</h1>
 
       <form>
         <div className="mb-3">

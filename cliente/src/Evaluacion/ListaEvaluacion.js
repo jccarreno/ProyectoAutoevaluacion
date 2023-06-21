@@ -32,7 +32,7 @@ function ListaEvaluacion() {
 
   return (
     <div>
-      <h2>Listar evaluaciones</h2>
+      <h2>LISTA DE EVALUACIONES</h2>
       <input
         type="text"
         placeholder="Buscar por periodo"
