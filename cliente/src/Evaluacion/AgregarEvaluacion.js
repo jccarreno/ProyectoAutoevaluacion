@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function AgregarEvaluacion(){
 
@@ -76,6 +77,7 @@ function AgregarEvaluacion(){
 
     return(
       <div className="container">
+        <VistaCoordinador />
         <h1 className="text-center">REGISTRAR EVALUACION</h1>
         <form>
           <div className="mb-3">

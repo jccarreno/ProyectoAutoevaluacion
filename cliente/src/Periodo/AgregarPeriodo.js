@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function AgregarPeriodo(){
 
@@ -32,6 +33,7 @@ function AgregarPeriodo(){
 
     return(
       <div className="container">
+        <VistaCoordinador />
         <h1 className="text-center">REGISTRO DE PERIODO</h1>
 
         <form>

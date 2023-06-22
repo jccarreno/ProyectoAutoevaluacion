@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EvaluacionIndividual from './EvaluacionIndividual';
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function ListaEvaluacion() {
   const [dataevaluacion, setdataevaluacion] = useState([]);
@@ -32,6 +33,7 @@ function ListaEvaluacion() {
 
   return (
     <div>
+      <VistaCoordinador />
       <h2>LISTA DE EVALUACIONES</h2>
       <input
         type="text"

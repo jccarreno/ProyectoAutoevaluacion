@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function AgregarLabor(){
 
@@ -52,6 +53,7 @@ function AgregarLabor(){
 
     return(
     <div className="container">
+      <VistaCoordinador />
       <h1 className="text-center">AGREGAR LABOR</h1>
 
       <form>

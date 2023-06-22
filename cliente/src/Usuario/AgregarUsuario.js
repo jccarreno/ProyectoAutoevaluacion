@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function AgregarUsuarios(){
 
@@ -34,6 +35,7 @@ function AgregarUsuarios(){
 
     return(
     <div className="container">
+      <VistaCoordinador />
       <h1 className="text-center">AGREGAR USUARIO</h1>
 
       <form>

@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import LaborIndividual from './LaborIndividual'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function ListaLabor(){
 
@@ -26,6 +27,7 @@ function ListaLabor(){
 
     return(
         <div>
+            <VistaCoordinador />
             <h2>LISTA DE LABORES</h2>
             {listaLabores}
         </div>

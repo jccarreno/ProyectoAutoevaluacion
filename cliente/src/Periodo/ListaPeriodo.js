@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import PeriodoIndividual from './PeriodoIndividual'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function ListaPeriodo(){
 
@@ -26,6 +27,7 @@ function ListaPeriodo(){
 
     return(
         <div>
+            <VistaCoordinador />
             <h2>LISTA DE PERIODOS</h2>
             {listaPeriodos}
         </div>

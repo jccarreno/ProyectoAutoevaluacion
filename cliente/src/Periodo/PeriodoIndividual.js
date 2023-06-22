@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 
+
 function PeriodoIndividual({periodo}){
     //Funcion para borrar usuario
     function borrarperiodo(idperiodo){

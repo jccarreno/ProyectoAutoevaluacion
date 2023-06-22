@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function EditarEvaluacion() {
   const params = useParams();
@@ -60,6 +61,7 @@ function EditarEvaluacion() {
 
   return (
     <div className="container">
+      <VistaCoordinador />
       <h1 className="text-center">EDITAR EVALUACION</h1>
       <form>
 

@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import UsuarioIndividual from './UsuarioIndividual'
 import axios from 'axios'
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function ListaUsuarios(){
 
@@ -26,6 +27,7 @@ function ListaUsuarios(){
 
     return(
         <div>
+            <VistaCoordinador />
             <h2>LISTA DE USUARIOS</h2>
             {listaUsuarios}
         </div>

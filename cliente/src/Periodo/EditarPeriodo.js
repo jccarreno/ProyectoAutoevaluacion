@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import VistaCoordinador from '../VistaCoordinador/VistaCoordinador'
 
 function EditarPeriodo() {
   const params = useParams();
@@ -49,6 +50,7 @@ function EditarPeriodo() {
 
   return (
     <div className="container">
+      <VistaCoordinador />
     <h1 className="text-center">EDITAR PERIODO</h1>
 
     <form>
