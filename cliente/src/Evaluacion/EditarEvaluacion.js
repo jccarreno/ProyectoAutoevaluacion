@@ -60,8 +60,10 @@ function EditarEvaluacion() {
 
 
   return (
+    <div>
+    <div><VistaCoordinador /></div>
     <div className="container">
-      <VistaCoordinador />
+      
       <h1 className="text-center">EDITAR EVALUACION</h1>
       <form>
 
@@ -108,6 +110,7 @@ function EditarEvaluacion() {
           <button onClick={editarEvaluacion} type="submit" className="btn btn-primary">Actualizar</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

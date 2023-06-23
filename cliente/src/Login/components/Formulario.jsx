@@ -2,6 +2,7 @@ import "./Formulario.css";
 import { useState } from "react";
 import axios from 'axios';
 import md5 from 'md5';
+import logo from '../images/escudito.png';
 
 export function Formulario() {
 
@@ -52,7 +53,7 @@ export function Formulario() {
 
   return (
     <div className="login-box">
-      <img className = "avatar" src="cliente\src\Login\images\escudito.png" alt="logo-unicauca" />
+      <img className = "avatar" src={logo} alt="logo-unicauca" />
       <h1>Login [Unicauca] </h1>
       <form className="formulario" onSubmit={handleSubmit}>
         <label form="username">Username</label>

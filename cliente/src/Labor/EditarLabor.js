@@ -48,8 +48,10 @@ function EditarLabor() {
 
 
   return (
+    <div>
+    <div><VistaCoordinador /></div>
     <div className="container">
-      <VistaCoordinador />
+      
       <h1 className="text-center">EDITAR LABOR</h1>
 
       <form>
@@ -72,6 +74,7 @@ function EditarLabor() {
           <button onClick={editarLabor} type="submit" className="btn btn-primary">Agregar</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

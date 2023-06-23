@@ -27,9 +27,13 @@ function ListaUsuarios(){
 
     return(
         <div>
-            <VistaCoordinador />
-            <h2>LISTA DE USUARIOS</h2>
-            {listaUsuarios}
+            <div><VistaCoordinador /></div>
+            <div className="container py-5" style={{ backgroundColor: '#f7f7f7', borderRadius: '15px', boxShadow: '0px 0px 10px #00000030' }}>
+                <h2 style={{ color: '#3f51b5', fontWeight: '600', marginBottom: '20px' }}>Lista de Usuarios</h2>
+                <div className="users-list">
+                    {listaUsuarios}
+                </div>
+            </div>
         </div>
     )
 }

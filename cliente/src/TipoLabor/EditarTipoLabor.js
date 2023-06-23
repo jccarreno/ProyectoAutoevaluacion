@@ -44,8 +44,10 @@ function EditarTipoLabor() {
 
 
   return (
+    <div>
+    <div><VistaCoordinador /></div>
     <div className="container">
-      <VistaCoordinador />
+      
       <h1 className="text-center">EDITAR TIPO LABOR</h1>
 
       <form>
@@ -75,6 +77,7 @@ function EditarTipoLabor() {
             <button onClick={editarTipoLabor} type="submit" className="btn btn-primary">Actualizar</button>
           </div>
       </form>
+    </div>
     </div>
   );
 }

@@ -33,15 +33,19 @@ function ListaEvaluacion() {
 
   return (
     <div>
-      <VistaCoordinador />
-      <h2>LISTA DE EVALUACIONES</h2>
+    <div><VistaCoordinador /></div>
+    <div className="container py-5" style={{ backgroundColor: '#f7f7f7', borderRadius: '15px', boxShadow: '0px 0px 10px #00000030' }}>
+      <h1 className="text-center mb-5" style={{ color: '#3f51b5' }}>LISTA DE EVALUACIONES</h1>
       <input
         type="text"
+        className="form-control mb-4"
         placeholder="Buscar por periodo"
         value={filtroPerId}
         onChange={(e) => setFiltroPerId(e.target.value)}
       />
       {listaEvaluaciones}
+    </div>
+
     </div>
   );
 }

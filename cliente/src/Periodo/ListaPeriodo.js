@@ -27,9 +27,12 @@ function ListaPeriodo(){
 
     return(
         <div>
-            <VistaCoordinador />
-            <h2>LISTA DE PERIODOS</h2>
+        <div><VistaCoordinador /></div>
+        <div className="container py-5" style={{ backgroundColor: '#f7f7f7', borderRadius: '15px', boxShadow: '0px 0px 10px #00000030' }}>
+            <h1 className="text-center mb-5" style={{ color: '#3f51b5' }}>LISTA DE PERIODOS</h1>
             {listaPeriodos}
+        </div>
+
         </div>
     )
 }

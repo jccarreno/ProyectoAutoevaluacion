@@ -49,8 +49,10 @@ function EditarPeriodo() {
 
 
   return (
+    <div>
+    <div><VistaCoordinador /></div>
     <div className="container">
-      <VistaCoordinador />
+      
     <h1 className="text-center">EDITAR PERIODO</h1>
 
     <form>
@@ -73,6 +75,7 @@ function EditarPeriodo() {
         <button onClick={editarPeriodo} type="submit" className="btn btn-primary">Actualizar</button>
       </div>
     </form>
+  </div>
   </div>
   );
 }

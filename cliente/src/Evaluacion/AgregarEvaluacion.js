@@ -76,17 +76,18 @@ function AgregarEvaluacion(){
   }
 
     return(
-      <div className="container">
-        <VistaCoordinador />
-        <h1 className="text-center">REGISTRAR EVALUACION</h1>
+      <div>
+      <div><VistaCoordinador /></div>
+      <div className="container py-5" style={{ backgroundColor: '#f7f7f7', borderRadius: '15px', boxShadow: '0px 0px 10px #00000030' }}>
+        <h1 className="text-center mb-5" style={{ color: '#3f51b5' }}>REGISTRAR EVALUACION</h1>
         <form>
-          <div className="mb-3">
-            <label htmlFor="id" className="form-label">ID:</label>
-            <input type="text" className="form-control" id="eva_id" name="cedula" required value={eva_id} onChange={(e)=>{SetId(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="eva_id" className="form-label" style={{ fontWeight: '600' }}>ID:</label>
+            <input type="text" className="form-control" id="eva_id" name="eva_id" required value={eva_id} onChange={(e)=>{SetId(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="estado" className="form-label">Estado:</label>
+          <div className="mb-4">
+            <label htmlFor="estado" className="form-label" style={{ fontWeight: '600' }}>Estado:</label>
             <select className="form-select" id="estado" name="estado" required value={eva_estado} onChange={(e)=>{SetEstado(e.target.value)}}>
               <option value="En ejecucion">En ejecución</option>
               <option value="Terminado">Terminado</option>
@@ -94,40 +95,42 @@ function AgregarEvaluacion(){
             </select>
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="puntaje" className="form-label">Puntaje:</label>
-            <input type="number" id="eva_puntaje" name="puntaje" min="0" max="100" required value={eva_puntaje} onChange={(e)=>{SetPuntaje(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="eva_puntaje" className="form-label" style={{ fontWeight: '600' }}>Puntaje:</label>
+            <input type="number" id="eva_puntaje" name="eva_puntaje" min="0" max="100" required value={eva_puntaje} onChange={(e)=>{SetPuntaje(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="resultado" className="form-label">Resultado:</label>
-            <input type="text" className="form-control" id="eva_resultado" name="cedula" required value={eva_resultado} onChange={(e)=>{SetResultado(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="eva_resultado" className="form-label" style={{ fontWeight: '600' }}>Resultado:</label>
+            <input type="text" className="form-control" id="eva_resultado" name="eva_resultado" required value={eva_resultado} onChange={(e)=>{SetResultado(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="id_labor" className="form-label">ID de la labor:</label>
-            <input type="text" className="form-control" id="lab_id" name="id_labor" required value={lab_id} onChange={(e)=>{SetLabId(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="lab_id" className="form-label" style={{ fontWeight: '600' }}>ID de la labor:</label>
+            <input type="text" className="form-control" id="lab_id" name="lab_id" required value={lab_id} onChange={(e)=>{SetLabId(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="id_periodo" className="form-label">ID del periodo:</label>
-            <input type="text" className="form-control" id="per_id" name="id_periodo" required value={per_id} onChange={(e)=>{SetPerId(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="per_id" className="form-label" style={{ fontWeight: '600' }}>ID del periodo:</label>
+            <input type="text" className="form-control" id="per_id" name="per_id" required value={per_id} onChange={(e)=>{SetPerId(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="id_profesor" className="form-label">ID del profesor:</label>
-            <input type="text" className="form-control" id="usr_id" name="id_profesor" required value={usr_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="usr_id" className="form-label" style={{ fontWeight: '600' }}>ID del profesor:</label>
+            <input type="text" className="form-control" id="usr_id" name="usr_id" required value={usr_id} onChange={(e)=>{SetUsrId(e.target.value)}} />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="id_rol" className="form-label">ID del rol:</label>
-            <input type="text" className="form-control" id="rol_id" name="id_rol" required value={rol_id} onChange={(e)=>{SetRolId(e.target.value)}} />
+          <div className="mb-4">
+            <label htmlFor="rol_id" className="form-label" style={{ fontWeight: '600' }}>ID del rol:</label>
+            <input type="text" className="form-control" id="rol_id" name="rol_id" required value={rol_id} onChange={(e)=>{SetRolId(e.target.value)}} />
           </div>
 
           <div className="text-center">
-            <button onClick={agregarEvaluacion} type="submit" className="btn btn-primary">Agregar</button>
+            <button onClick={agregarEvaluacion} type="submit" className="btn btn-primary" style={{ backgroundColor: '#3f51b5', border: 'none' }}>Agregar</button>
           </div>
         </form>
+      </div>
+
       </div>
     )
 }

@@ -1,12 +1,16 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './VistaDocente.css';
 
 function FilaTabla({ index, evaluacion,updateEstado, updateResultado, updatePuntaje }) {
 
   const[lab_nombre,SetNombre]=useState('')
   const[lab_horas,SetHoras]=useState('')
   const[tl_id,SetTlId]=useState('')
+
+
+
 
   useEffect(() => {
     if (evaluacion.lab_id) {
@@ -68,48 +72,41 @@ function FilaTabla({ index, evaluacion,updateEstado, updateResultado, updatePunt
     }
   }, [evaluacion.per_id]);
 
+
+
   return (
-        <tr key={index}>
-            <td> {index+1} </td>
-            <td className="column-nombrelabor">
-            {lab_nombre}
-            </td>
-            <td>{tl_codigo}</td>
-            <td>{lab_horas}</td>
-            <td>{tl_descripcion}</td>
-            <td>{per_fechainicio}</td>
-            <td>{per_fechafin}</td>
-            <td>
-            <select
-                className="select-column-estado"
-                value={evaluacion.eva_estado} 
-                onChange={(e)=> updateEstado(evaluacion.eva_id, e.target.value)}>
-                <option value="">Seleccione una opción</option>
-                <option value="Terminado">Terminado</option>
-                <option value="En ejecución">En ejecución</option>
-                <option value="Suspendido">Suspendido</option>
-            </select>
-            </td>
-            <td>
-            <input
-                className="input-column-resultado"
-                type="text"
-                value={evaluacion.eva_resultado}
-                onChange={(e)=> updateResultado(evaluacion.eva_id, e.target.value)}
-            />
-            </td>
-            <td>
-            <input
-                className="input-column-puntaje"
-                type="number"
-                value={evaluacion.eva_puntaje}
-                min="1" 
-                max="100"
-                onChange={(e)=> updatePuntaje(evaluacion.eva_id, e.target.value)}
-            />
-            </td>
-        </tr>
-    )
+    <tr key={index} className="evaluation-table-row">
+      <td> {index+1} </td>
+      <td className="column-nombrelabor">{lab_nombre}</td>
+      <td>{tl_codigo}</td>
+      <td>{evaluacion.per_id}</td>
+      <td>{lab_horas}</td>
+      <td>{tl_descripcion}</td>
+      <td>{per_fechainicio}</td>
+      <td>{per_fechafin}</td>
+      <td>{evaluacion.eva_estado}</td>
+      <td>
+        <input
+          className="input-column-resultado evaluation-input"
+          type="text"
+          value={evaluacion.eva_resultado}
+          readOnly={evaluacion.eva_estado === "Terminado"}
+          onChange={(e) => updateResultado(evaluacion.eva_id, e.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          className="input-column-puntaje evaluation-input"
+          type="number"
+          value={evaluacion.eva_puntaje}
+          min="1" 
+          max="100"
+          readOnly={evaluacion.eva_estado === "Terminado"}
+          onChange={(e) => updatePuntaje(evaluacion.eva_id, e.target.value)}
+        />
+      </td>
+    </tr>
+  );
 }
 
 export default FilaTabla;

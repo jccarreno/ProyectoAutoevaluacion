@@ -4,6 +4,7 @@ import axios from 'axios';
 import "./components/TableStyle.css"
 import "../App.css";
 import FilaTabla from './FilaTabla';
+import './VistaDocente.css';
 
 function VistaDocente() {
     const params = useParams();
@@ -12,8 +13,17 @@ function VistaDocente() {
     const [labores, setLabores] = useState([]);
     const [periodos, setPeriodos] = useState([]);
     const [tiposLabor, setTiposLabor] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
   
     axios.defaults.baseURL = 'http://localhost:5000';
+
+    const handleSearchChange = (event) => {
+      setSearchValue(event.target.value);
+    };
+
+    const filteredEvaluaciones = evaluaciones.filter((evaluacion) =>
+  evaluacion.per_id.includes(searchValue)
+);
 
     useEffect(() => {
         if (params.usr_id) {
@@ -154,78 +164,73 @@ function VistaDocente() {
     };
 
     return (
-        <div className="app">
-            <table className="first-table">
-                <tbody>
-                <tr>
-                    <td className="recta">
-                    INFORME Y EVALUACION DE ACTIVIDADES DE LABOR DOCENTE -
-                    DEPARTAMENTO DE SISTEMAS
-                    </td>
-                </tr>
-                <tr>
-                    <td className="recta">
-                    Facultad de Ingenieria Electronica y Telecomunicaciones -
-                    Universidad del Cauca
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <table className="first-table">
-                <tbody>
-                <tr>
-                    <td className="parte-center" rowSpan={3}>
-                    <p>
-                        Para cada uno de los items presentados a continuacion:<br></br>
-                        En la columna "Estado" debe ir Terminado o en ejecucion, segun
-                        corresponda.<br></br>
-                        Especifique los resultados en las celdas de la columna K
-                        <br></br>
-                        La evaluacion de la misma en una escala de 1 - 100, en las
-                        celdas de la columna L <br></br>
-                        Si lo desea tambien hay una seccion de sugerencias y
-                        recomendaciones al final de esta tabla.
-                    </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td className="parte">Nombre</td>
-                    <td className="parte">{usr_nombre}</td>
-                </tr>
-                <tr>
-                    <td className="parte">Identificacion (Docente)</td>
-                    <td className="parte">{params.usr_id}</td>
-                </tr>
-                </tbody>
-            </table>
-          <table className="second-table">
-            <tbody>
+      <div className="VistaDocente">
+
+          <div className="info-header">
+            <h1>INFORME Y EVALUACION DE ACTIVIDADES DE LABOR DOCENTE - DEPARTAMENTO DE SISTEMAS</h1>
+            <p>Facultad de Ingenieria Electronica y Telecomunicaciones - Universidad del Cauca</p>
+          </div>
+          <input
+              type="text"
+              value={searchValue}
+              onChange={handleSearchChange}
+              placeholder="Buscar por ID del periodo"
+              className="search-input"
+          />
+
+          <div className="instructions">
+            <p>Para cada uno de los items presentados a continuacion:</p>
+            <ul>
+              <li>En la columna "Estado" debe ir Terminado o en ejecucion, segun corresponda.</li>
+              <li>Especifique los resultados en las celdas de la columna K.</li>
+              <li>La evaluacion de la misma en una escala de 1 - 100, en las celdas de la columna L.</li>
+              <li>Si lo desea tambien hay una seccion de sugerencias y recomendaciones al final de esta tabla.</li>
+            </ul>
+          </div>
+
+          <div className="personal-info">
+            <div className="info-item">
+              <span className="info-title">Nombre: </span>
+              <span className="info-value">{usr_nombre}</span>
+            </div>
+            <div className="info-item">
+              <span className="info-title">Identificacion (Docente): </span>
+              <span className="info-value">{params.usr_id}</span>
+            </div>
+          </div>
+
+          <table className="evaluation-table">
+            <thead>
               <tr>
-                <th className="title-second-table">N</th>
-                <th className="title-second-table">Nombre de Labor</th>
-                <th className="title-second-table">Tipo de Labor</th>
-                <th className="title-second-table">Horas</th>
-                <th className="title-second-table">Descripción</th>
-                <th className="title-second-table">Fecha Inicio</th>
-                <th className="title-second-table">Fecha Fin</th>
-                <th className="title-second-table">Estado</th>
-                <th className="title-second-table">Resultados</th>
-                <th className="title-second-table">Evaluación</th>
+                <th>N</th>
+                <th>Nombre de Labor</th>
+                <th>Tipo de Labor</th>
+                <th>Periodo</th>
+                <th>Horas</th>
+                <th>Descripción</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Estado</th>
+                <th>Resultados</th>
+                <th>Evaluación</th>
               </tr>
-                {evaluaciones.map((evaluacion, index) => (
-                    <FilaTabla 
-                        key={index}
-                        index={index}
-                        evaluacion={evaluacion}
-                        updateEstado={updateEstado}
-                        updateResultado={updateResultado}
-                        updatePuntaje={updatePuntaje}
-                    />
-                    ))}
+            </thead>
+            <tbody>
+              {filteredEvaluaciones.map((evaluacion, index) => (
+                <FilaTabla 
+                  key={index}
+                  index={index}
+                  evaluacion={evaluacion}
+                  updateEstado={updateEstado}
+                  updateResultado={updateResultado}
+                  updatePuntaje={updatePuntaje}
+                />
+              ))}
             </tbody>
           </table>
         </div>
       );
+
       
 }
 
